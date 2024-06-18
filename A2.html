@@ -8,6 +8,20 @@
 </head>
 <body>
     <h1>Tic Tac Toe</h1>
+    
+    <div class="player-info">
+        <div>
+            <label for="playerXName">Player X: </label>
+            <input type="text" id="playerXName" value="Player X" readonly>
+            <button id="playerXButton" onclick="editName('X')">Edit</button>
+        </div>
+        <div>
+            <label for="playerOName">Player O: </label>
+            <input type="text" id="playerOName" value="Player O" readonly>
+            <button id="playerOButton" onclick="editName('O')">Edit</button>
+        </div>
+    </div>
+
     <div class="game-board">
         <div class="cell" data-index="0"></div>
         <div class="cell" data-index="1"></div>

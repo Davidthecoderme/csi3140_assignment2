@@ -33,8 +33,16 @@ function handleCellClick(event) {
     clickedCell.textContent = currentPlayer;
 
     
-    currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
-    statusText.textContent = `Player ${playerNames[currentPlayer]}'s turn`;
+    if (checkWinner()) {
+        gameActive = false;
+        statusText.textContent = `${playerNames[currentPlayer]} wins!`;
+    } else if (!gameState.includes('')) {
+        gameActive = false;
+        statusText.textContent = 'It\'s a draw!';
+    } else {
+        currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
+        statusText.textContent = `Player ${playerNames[currentPlayer]}'s turn`;
+    }
 }
 
 
@@ -45,6 +53,16 @@ function resetGame() {
     currentPlayer = 'X';
     statusText.textContent = `Player ${playerNames[currentPlayer]}'s turn`;
     cells.forEach(cell => cell.textContent = '');
+}
+
+function checkWinner() {
+    for (let i = 0; i < winningConditions.length; i++) {
+        const [a, b, c] = winningConditions[i];
+        if (gameState[a] !== '' && gameState[a] === gameState[b] && gameState[a] === gameState[c]) {
+            return true;
+        }
+    }
+    return false;
 }
 
 

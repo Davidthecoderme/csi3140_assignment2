@@ -28,6 +28,10 @@ header img{
   object-fit: contain;
   margin: 1rem auto 1rem auto;
   filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.4));
+  border-radius: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-board {
@@ -72,4 +76,7 @@ button {
     padding: 10px 20px;
     font-size: 1em;
     cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid;
+    border-radius: 5px;
 }
